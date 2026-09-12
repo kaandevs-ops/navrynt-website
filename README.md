@@ -1,100 +1,122 @@
-# NAVRYNT Official Website — Static Commerce Edition
+<div align="center">
 
-This repository contains the official NAVRYNT Business Source product + sales website.
+<img src="banner.png" alt="NAVRYNT engineering banner" width="100%" />
 
-The entire public site is designed to run on **GitHub Pages only**. There is no commerce backend, database, webhook, admin API, email API, embedded card processor, or runtime dependency on Lemon Squeezy.
+# NAVRYNT Official Website
 
-The website uses a **full Business Source media set rebuilt from the commercial NAVRYNT frontend source and design system**. It does not reuse the public-demo screenshots or the old Store Media preview video.
+**Official product and sales website for NAVRYNT Business Source.**
 
-## Architecture
+[**Live Website**](https://kaandevs-ops.github.io/navrynt-website/) ·
+[**Public Demo**](https://kaandevs-ops.github.io/navrynt-demo/) ·
+[**GitHub Demo**](https://github.com/kaandevs-ops/navrynt-demo) ·
+[**Card Purchase**](https://navrynt.lemonsqueezy.com)
 
-```text
-GitHub Pages
-└── site/
-    ├── Full NAVRYNT product website
-    ├── Full-product screenshots + 63-second full-product interface film
-    ├── Direct bank-transfer purchase center
-    ├── Browser-generated purchase reference
-    ├── Email / procurement purchase flow
-    ├── Downloadable + printable order summary
-    └── Separate external Lemon Squeezy storefront link
-```
+</div>
 
-There is intentionally **no backend** in this repository.
+---
 
-## Direct purchase flow
+## About
 
-1. Buyer enters name/company/email/country in the static purchase page.
-2. JavaScript generates a local reference such as `NVY-WEB-20260912-XXXXXXXX` using browser randomness.
-3. If verified public bank coordinates are configured, the page displays beneficiary / bank / IBAN / SWIFT and copy controls.
-4. Buyer uses the exact reference in the transfer description.
-5. Buyer clicks **I completed the transfer**. The website opens the buyer's own email client with a prepared payment-confirmation message.
-6. Buyer attaches the transfer receipt and sends the email.
-7. Seller verifies the payment manually, then performs licensed delivery and issues the seller-signed `.nvylic` using the private Seller Control Kit kept outside this repository.
+This repository contains the public-facing website for **NAVRYNT Business Source** — a self-hosted intelligence, investigation, GEOINT, media-analysis, AI, biometric and model-development platform.
 
-The browser-generated reference is **not** proof of payment, a server-side order, or a license activation.
+The website is intentionally designed as a **fully static GitHub Pages deployment**. It does not require a commerce backend, database, webhook service, embedded payment processor or server-side runtime.
 
-## Optional card marketplace
+> **Important:** This repository is the public website source only. It does **not** contain the NAVRYNT commercial source package, Seller Control Kit, private signing key, customer licenses, production secrets, or private customer data.
 
-Lemon Squeezy is used only as a separate external storefront link on `purchase.html` for buyers who prefer card payment.
+## Product overview
 
-It is **not** used for:
+The website presents the commercial NAVRYNT Business Source edition, including:
 
-- site APIs;
-- webhooks;
-- order synchronization;
-- embedded checkout;
-- product runtime licensing;
-- website availability;
-- bank-transfer purchases.
-
-If Lemon Squeezy is unavailable, the official NAVRYNT website and direct bank/email purchase path remain available.
-
-## Product facts represented by the website
-
-- NAVRYNT Business Source — USD $2,490 one-time
-- one licensed legal entity
-- up to 25 internal authorized users
-- up to 3 production deployments
-- full first-party source code
-- Python backend + premium React/Vite frontend
-- REST API, CLI, SDK/plugin surfaces, browser extension
+- Full first-party source code
+- Self-hosted deployment
+- Investigation, evidence, graph, timeline and intelligence workflows
+- GEOINT and media-forensics surfaces
+- AI-assisted analysis
+- Plugin and extensibility surfaces
+- Six biometric suites: Face, Iris, Fingerprint, Voiceprint, Writer-ID and Gait
+- Biometric Workbench
+- Model Studio
+- Native seller-signed `NVY1` / `.nvylic` product licensing
+- Python backend and premium React/Vite frontend
+- REST API, CLI, SDK/plugin surfaces and browser extension
 - Docker / Docker Compose deployment assets
-- six biometric suites: Face, Iris, Fingerprint, Voiceprint, Writer-ID, Gait
-- Biometric Workbench + Model Studio
-- perpetual use of lawfully received Navrynt 1.x releases
-- seller-signed `NVY1` / `.nvylic` runtime product licensing
 
-## Configure the public purchase page
+### Business Source terms shown on the website
 
-Edit only the public values in `site/config.js`.
+- **USD $2,490 — one-time**
+- Up to **25 internal authorized users**
+- Up to **3 production deployments**
+- Perpetual use of lawfully received NAVRYNT 1.x releases
+- No resale, redistribution, SaaS resale or OEM redistribution rights
 
-### Contact email
+## Purchase options
 
-```js
-contactEmail: "YOUR-SALES-EMAIL"
-```
+The website keeps direct purchasing independent from any single marketplace.
 
 ### Direct bank transfer
 
-Only insert bank details that are intentionally safe to publish to customers:
+The static purchase center can present intentionally public receiving coordinates for direct USD transfer. A browser-generated `NVY-WEB-...` reference is created locally and the buyer can send payment confirmation and proof of transfer by email.
 
-```js
-bankTransfer: {
-  enabled: true,
-  beneficiary: "VERIFIED BENEFICIARY",
-  bankName: "VERIFIED BANK NAME",
-  iban: "VERIFIED IBAN",
-  swift: "VERIFIED SWIFT/BIC",
-  currency: "USD"
-}
+The generated browser reference is **not** proof of payment, a server-side order, or a product license. Payment is verified manually before delivery and license issuance.
+
+### Procurement / email
+
+Organizations can use the purchase page to prepare a procurement or invoicing request and continue through email.
+
+### Optional card marketplace
+
+Lemon Squeezy appears only as an **external optional storefront link** for buyers who prefer card payment.
+
+It is not required for:
+
+- website availability
+- direct bank transfers
+- site APIs
+- webhooks
+- embedded checkout
+- product runtime licensing
+- order synchronization
+
+## Repository layout
+
+```text
+.
+├── .github/
+│   └── workflows/
+│       └── pages.yml
+├── docs/
+├── site/
+│   ├── index.html
+│   ├── platform.html
+│   ├── biometrics.html
+│   ├── architecture.html
+│   ├── purchase.html
+│   ├── legal/
+│   ├── assets/
+│   │   ├── brand/
+│   │   ├── product/
+│   │   └── video/
+│   ├── config.js
+│   ├── app.js
+│   └── styles.css
+├── banner.png
+├── LICENSE
+└── README.md
 ```
 
-Never place online-banking passwords, login credentials, payment API secrets, seller private signing keys, customer licenses, or customer source packages in `config.js`.
+## GitHub Pages
 
-The published static build is now configured with the verified NAVRYNT direct-purchase USD receiving account. Because GitHub Pages is public, these receiving coordinates are intentionally public storefront information. No online-banking credentials or private seller material are present.
+The production site is deployed through GitHub Actions from the `site/` directory.
 
-For international transfers, the purchase page asks buyers to send **USD** and choose **OUR** fees where their bank supports that option, so intermediary/correspondent charges are paid by the sender rather than deducted from the USD 2,490 purchase amount.
+**Live:** https://kaandevs-ops.github.io/navrynt-website/
+
+The workflow is located at:
+
+```text
+.github/workflows/pages.yml
+```
+
+A push to `main` triggers a Pages deployment.
 
 ## Local preview
 
@@ -103,30 +125,55 @@ cd site
 python3 -m http.server 4173
 ```
 
-Open `http://localhost:4173`.
-
-## GitHub Pages
-
-A GitHub Actions Pages workflow is already included at:
+Then open:
 
 ```text
-.github/workflows/pages.yml
+http://localhost:4173
 ```
 
-It publishes the `site/` directory on pushes to `main`.
+## Public configuration
 
-See `docs/GITHUB_PAGES.md` for the exact repository setup we can follow when the repo is created.
+Public storefront values live in:
+
+```text
+site/config.js
+```
+
+This file may contain information intentionally shown to customers, such as the sales contact address, public demo URLs, external marketplace URL and public bank-transfer receiving coordinates.
+
+It must **never** contain:
+
+- online-banking passwords or login credentials
+- card numbers or CVV data
+- Seller Control Kit
+- Ed25519 private signing key
+- API or webhook secrets
+- customer Business Source ZIPs
+- real customer `.nvylic` files
+- private customer records
 
 ## Security boundary
 
-The public repository must never contain:
+The commercial NAVRYNT delivery system remains outside this public repository.
 
-- NAVRYNT Seller Control Kit;
-- seller Ed25519 private signing key;
-- customer Business Source ZIP;
-- real customer `.nvylic` files;
-- bank login/password/2FA data;
-- payment/API/webhook secrets;
-- private customer records.
+After a verified purchase, the seller performs licensed delivery separately and issues the customer-specific seller-signed `.nvylic` using private seller tooling that is **not** stored here.
 
-See `docs/SECURITY.md`.
+See [`docs/SECURITY.md`](docs/SECURITY.md) for the public-repository boundary.
+
+## License
+
+The **source code and content of this public website repository** are licensed under the [Apache License 2.0](LICENSE).
+
+The Apache License applies **only to this public website repository**. It does **not** grant rights to the NAVRYNT Business Source commercial product, production backend, proprietary analysis engines, customer source package, Seller Control Kit, private signing infrastructure, model assets, commercial licenses, or other separately distributed NAVRYNT components.
+
+Copyright © 2026 kaandevs-ops.
+
+---
+
+<div align="center">
+
+**NAVRYNT — Self-Hosted Intelligence Infrastructure**
+
+Public website · Full-product showcase · Direct purchase · GitHub Pages
+
+</div>
