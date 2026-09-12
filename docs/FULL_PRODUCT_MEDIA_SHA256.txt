@@ -1,0 +1,13 @@
+NAVRYNT STATIC V7 — FULL PRODUCT MEDIA SHA-256
+================================================
+
+cebd1b4a4207a93d6ae0b8426836b38d874ce02fdd085c682c97742ed7ec5d51  site/assets/product/00-cover.png
+f54d89794618b39fb5634547acd8d09fc6eb6704e0d9da2fdc4fdee963ccc268  site/assets/product/01-overview.png
+800d1528a2da350217ef9312a84ba1401819d2bacf0ac94ba7520aa62f24c28d  site/assets/product/02-biometric-lab.png
+80ffebf1cb6553e5d757cc4ea42e199567ba399c1a652af094913341d94591cf  site/assets/product/03-model-studio.png
+f47c56cc485c2060f458e87f485ed9178ff7a1571fcb459d52a626787bc2574f  site/assets/product/04-ai-platform.png
+dd45317566526f2332f3a134aa3d430cea98f532da572746be144b47fc9c1786  site/assets/product/05-geoint.png
+5b5c7696b9d57b555ce970bdcfa02a422e8e05c1569ca3cdfce0dffb584cc146  site/assets/product/06-media-forensics.png
+6f2a24549674e6f9cfc514f45165f9f46453647a5658799c895c76e85e9ac93b  site/assets/product/07-plugin-marketplace.png
+d17a129bb1f15a69cdccc61427a80b48e8092bb6b8ac625ff66efc3c799514b4  site/assets/product/08-license-management.png
+e8628847eba297c944b04f09a6d4b829e4050c92ff108f796456412217799da4  site/assets/video/navrynt-full-product-film.mp4

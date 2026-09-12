@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07090d">
+  <title>Buy NAVRYNT — Business Source</title>
+  <meta name="description" content="Purchase NAVRYNT Business Source directly by bank transfer or email procurement, with a separate optional Lemon Squeezy marketplace link for card payment.">
+  <link rel="icon" href="assets/brand/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page-progress"><span id="page-progress-bar"></span></div>
+  <div class="noise"></div>
+
+  <header class="site-header">
+    <div class="shell nav-shell">
+      <a class="brand" href="index.html"><img src="assets/brand/navrynt-logo.png" alt=""><span><strong>NAVRYNT</strong><small>BUSINESS SOURCE</small></span></a>
+      <button class="menu-button" type="button" aria-controls="primary-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-nav"><a href="platform.html">Platform</a><a href="biometrics.html">Biometrics</a><a href="architecture.html">Architecture</a><a href="index.html#product-film">Product film</a><a href="purchase.html">Purchase</a></nav>
+      <div class="nav-actions"><a class="text-link" data-demo-link href="#">Public demo ↗</a></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="inner-hero purchase-hero">
+      <div class="shell reveal">
+        <div class="breadcrumb"><a href="index.html">NAVRYNT</a> / PURCHASE</div>
+        <span class="kicker">DIRECT PURCHASE · STATIC GITHUB PAGES FLOW</span>
+        <h1>Purchase the full NAVRYNT Business Source release without tying the product to a payment backend.</h1>
+        <p>The official website is fully static. Direct purchases use bank transfer and email verification. Card payment remains available only as a separate external marketplace option.</p>
+      </div>
+    </section>
+
+    <section class="content-section purchase-center-section">
+      <div class="shell purchase-layout">
+        <aside class="purchase-summary reveal">
+          <img src="assets/product/00-cover.png" alt="NAVRYNT Business Source full product cover">
+          <span class="kicker">NAVRYNT BUSINESS SOURCE</span>
+          <h2>Commercial source license</h2>
+          <p>One licensed legal entity · 25 internal authorized users · 3 production deployments · perpetual use of lawfully received Navrynt 1.x releases.</p>
+          <div class="purchase-price">$2,490 <small>USD · ONE-TIME</small></div>
+          <div class="chips"><b>Full source</b><b>6 biometric suites</b><b>Model Studio</b><b>Plugin SDK</b><b>Docker/Compose</b></div>
+          <div class="static-commerce-badge"><i></i><span>100% static website · no commerce backend</span></div>
+        </aside>
+
+        <div class="purchase-main reveal reveal-delay-1">
+          <div class="direct-purchase-heading">
+            <span class="eyebrow-index">01 · DIRECT PURCHASE</span>
+            <h2>Bank transfer</h2>
+            <p>Create a local purchase reference in your browser. No form data is submitted to a server by this website. After the transfer, email the confirmation and receipt for manual verification and licensed delivery.</p>
+          </div>
+
+          <div class="purchase-flow-steps" aria-label="Direct purchase workflow">
+            <div><span>01</span><strong>Enter buyer details</strong><small>Processed only in your browser.</small></div>
+            <div><span>02</span><strong>Generate reference</strong><small>Example: NVY-WEB-YYYYMMDD-XXXXXXXX.</small></div>
+            <div><span>03</span><strong>Make transfer</strong><small>Use the exact reference in the bank description.</small></div>
+            <div><span>04</span><strong>Email receipt</strong><small>Payment is manually verified before delivery.</small></div>
+          </div>
+
+          <div class="purchase-option-card bank-state-card" id="bank-public-state" data-ready="false">
+            <div class="bank-state-icon" aria-hidden="true">↗</div>
+            <div><strong>Direct USD bank transfer is available</strong><p>Verified Yapı Kredi USD account coordinates are configured. Generate a purchase reference first, then include that exact reference in the transfer description.</p></div>
+          </div>
+
+          <form id="direct-purchase-form" autocomplete="on" class="direct-purchase-form">
+            <div class="field-grid">
+              <div class="field"><label for="direct-name">Full name *</label><input id="direct-name" name="name" required maxlength="120" autocomplete="name"></div>
+              <div class="field"><label for="direct-company">Company / organization</label><input id="direct-company" name="company" maxlength="160" autocomplete="organization"></div>
+              <div class="field"><label for="direct-email">Business email *</label><input id="direct-email" type="email" name="email" required maxlength="200" autocomplete="email"></div>
+              <div class="field"><label for="direct-country">Country *</label><input id="direct-country" name="country" required maxlength="100" autocomplete="country-name"></div>
+              <div class="field"><label for="direct-vat">VAT / Tax ID</label><input id="direct-vat" name="vat_id" maxlength="80"></div>
+              <div class="field full"><label for="direct-notes">Billing / purchase notes</label><textarea id="direct-notes" name="notes" maxlength="2000" placeholder="Billing address, invoice details, purchase contact, or other relevant information."></textarea></div>
+            </div>
+            <div class="form-actions direct-form-actions"><button class="button button-primary" type="submit">Generate purchase reference →</button><span class="form-status" aria-live="polite">Nothing is sent when you press this button.</span></div>
+          </form>
+
+          <section id="direct-order-result" class="order-result" hidden aria-live="polite">
+            <div class="order-result-head"><div><span class="eyebrow-index">LOCAL ORDER SUMMARY</span><h3>Your direct-purchase reference</h3></div><span class="status-pill status-local">Generated locally</span></div>
+            <div class="order-reference-row"><span id="order-reference">—</span><button class="copy-mini" type="button" data-copy="#order-reference">Copy</button></div>
+            <p class="micro-note">This reference is generated only in your browser. It is not proof of payment, a server-side order, or a license activation.</p>
+
+            <div class="order-data-grid">
+              <span><b>Created</b><em id="order-created">—</em></span>
+              <span><b>Customer</b><em id="order-customer">—</em></span>
+              <span><b>Company</b><em id="order-company">—</em></span>
+              <span><b>Email</b><em id="order-email">—</em></span>
+              <span><b>Country</b><em id="order-country">—</em></span>
+              <span><b>Amount</b><em id="order-amount">—</em></span>
+              <span><b>Path</b><em id="order-method">—</em></span>
+            </div>
+
+            <div class="bank-instructions-block">
+              <div class="section-mini-head"><span>PAYMENT COORDINATES</span><small>USD account · international transfers supported via SWIFT</small></div>
+              <div class="bank-details premium-bank-details">
+                <span><b>Beneficiary</b><em id="bank-beneficiary">—</em><button class="copy-inline" type="button" data-copy="#bank-beneficiary">Copy</button></span>
+                <span><b>Bank</b><em id="bank-name">—</em></span>
+                <span><b>Beneficiary country</b><em id="bank-country">—</em></span>
+                <span><b>Account currency</b><em id="bank-currency">USD</em></span>
+                <span><b>IBAN</b><em id="bank-iban">—</em><button class="copy-inline" type="button" data-copy="#bank-iban">Copy</button></span>
+                <span><b>SWIFT / BIC</b><em id="bank-swift">—</em><button class="copy-inline" type="button" data-copy="#bank-swift">Copy</button></span>
+                <span><b>Amount</b><em id="bank-amount">USD 2,490</em><button class="copy-inline" type="button" data-copy="#bank-amount">Copy</button></span>
+                <span class="wide"><b>Transfer reference</b><em id="bank-reference">—</em><button class="copy-inline" type="button" data-copy="#bank-reference">Copy</button></span>
+              </div>
+            </div>
+
+            <div class="order-actions">
+              <button id="email-bank-request" class="button button-ghost" type="button">Questions about bank transfer</button>
+              <button id="email-payment-confirmation" class="button button-primary" type="button">I completed the transfer →</button>
+              <button id="download-order-summary" class="button button-ghost" type="button">Download summary</button>
+              <button id="print-order-summary" class="button button-ghost" type="button">Print / Save PDF</button>
+            </div>
+            <div class="notice order-notice"><strong>International transfer:</strong> send USD and, where your bank offers fee options, choose <strong>OUR</strong> so intermediary fees are charged to the sender and the full USD 2,490 reaches the beneficiary. Use the generated reference exactly. If your sending bank requires a beneficiary street address or additional intermediary-bank information, contact us by email before sending. Before sending the payment-confirmation email, attach your transfer receipt. Delivery and the seller-signed <code>.nvylic</code> license are issued only after payment is verified.</div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section email-purchase-section">
+      <div class="shell email-purchase-grid">
+        <div class="content-head compact-head reveal"><div><span class="eyebrow-index">02 · EMAIL / PROCUREMENT</span><h2>Need an invoice, PO workflow, vendor onboarding, or bank details first?</h2></div><p>Send a structured purchase request directly from your own email app. The website prepares the message locally; it does not submit or store the form.</p></div>
+        <form id="procurement-form" class="procurement-card reveal reveal-delay-1" autocomplete="on">
+          <div class="field-grid">
+            <div class="field"><label for="proc-name">Full name *</label><input id="proc-name" name="name" required maxlength="120" autocomplete="name"></div>
+            <div class="field"><label for="proc-company">Company / organization</label><input id="proc-company" name="company" maxlength="160" autocomplete="organization"></div>
+            <div class="field"><label for="proc-email">Business email *</label><input id="proc-email" type="email" name="email" required maxlength="200" autocomplete="email"></div>
+            <div class="field"><label for="proc-country">Country *</label><input id="proc-country" name="country" required maxlength="100" autocomplete="country-name"></div>
+            <div class="field"><label for="proc-vat">VAT / Tax ID</label><input id="proc-vat" name="vat_id" maxlength="80"></div>
+            <div class="field full"><label for="proc-notes">Procurement requirements</label><textarea id="proc-notes" name="notes" maxlength="2000" placeholder="PO requirements, invoice fields, billing address, vendor onboarding steps, requested documentation, or request for bank coordinates."></textarea></div>
+          </div>
+          <div class="form-actions"><button class="button button-primary" type="submit">Prepare purchase email →</button><span class="form-status" aria-live="polite">Opens your email application with a prepared request.</span></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="content-section external-marketplace-section">
+      <div class="shell marketplace-card reveal">
+        <div class="marketplace-copy"><span class="eyebrow-index">03 · OPTIONAL EXTERNAL MARKETPLACE</span><h2>Prefer card payment?</h2><p>NAVRYNT is not technically dependent on Lemon Squeezy. This is simply a separate external storefront option for buyers who prefer marketplace card checkout.</p><div class="external-boundary"><span>External website</span><span>No NAVRYNT webhook</span><span>No embedded checkout</span><span>No runtime licensing dependency</span></div></div>
+        <div class="marketplace-action"><small>CARD / MARKETPLACE</small><strong>Lemon Squeezy</strong><p>You will leave this website and continue on the NAVRYNT Lemon Squeezy storefront.</p><a class="button button-primary button-wide" data-lemon-store-link href="https://navrynt.lemonsqueezy.com" target="_blank" rel="noopener noreferrer">Open NAVRYNT on Lemon Squeezy ↗</a></div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="shell"><div class="content-head reveal"><h2>What the purchase grants</h2><p>The controlling rights are defined by the NAVRYNT Business Source license, paid order/receipt and any separately signed agreement.</p></div><div class="capability-table"><article><small>ENTITY</small><h3>One licensed legal entity</h3><p>The standard commercial grant is for one legal entity.</p></article><article><small>USERS</small><h3>Up to 25 internal users</h3><p>Employees or contractors acting solely for the licensed entity count toward the limit.</p></article><article><small>PRODUCTION</small><h3>Up to 3 deployments</h3><p>Reasonable development, CI, staging, backup and short-lived test environments for the same entity are separate from production deployments.</p></article><article><small>SOURCE</small><h3>Internal modifications allowed</h3><p>The licensed entity may modify first-party NAVRYNT source for permitted internal use.</p></article><article><small>VERSION</small><h3>Perpetual Navrynt 1.x</h3><p>Perpetual use of lawfully received Navrynt 1.x releases; future 2.x rights are not included unless expressly granted.</p></article><article><small>BOUNDARY</small><h3>No resale / SaaS / OEM by default</h3><p>Redistribution, resale, sublicensing, public source release, third-party SaaS/managed service, OEM and service-provider rights are excluded unless granted in writing.</p></article></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid"><div><a class="brand footer-brand" href="index.html"><img src="assets/brand/navrynt-logo.png" alt=""><span><strong>NAVRYNT</strong><small>BUSINESS SOURCE</small></span></a><p>Self-hosted intelligence analysis and biometric model workflows for lawful, authorized use.</p></div><div><strong>Product</strong><a href="platform.html">Platform</a><a href="biometrics.html">Biometrics</a><a href="architecture.html">Architecture</a><a href="purchase.html">Purchase</a></div><div><strong>Explore</strong><a data-demo-link href="#">Public Demo ↗</a><a data-github-link href="#">GitHub Demo ↗</a></div><div><strong>Legal</strong><a href="legal/terms.html">Purchase terms</a><a href="legal/refund.html">Refund policy</a><a href="legal/privacy.html">Privacy</a><a data-contact-link href="#">Contact</a></div></div>
+    <div class="shell footer-bottom"><span>© 2026 NAVRYNT</span><span>Static GitHub Pages storefront · Direct bank transfer + email purchase</span></div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
